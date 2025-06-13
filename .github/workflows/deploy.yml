@@ -1,13 +1,8 @@
 name: Build & Deploy MkDocs website
 
 on:
-  workflow_dispatch:  # Allows manual triggering of the workflow
   push:
-    tags-ignore:
-      - '**'
-    branches:
-      - master
-      - main
+    branches: [ main, master ]
     paths:
       - 'docs/**'
       - 'mkdocs.yml'
