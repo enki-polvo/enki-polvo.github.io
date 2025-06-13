@@ -17,12 +17,21 @@ plugins:
   - search
   - awesome-nav
   - i18n:
-      default_language: en
+      docs_structure: suffix
       languages:
-        en: English
-        ko: 한국어
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: es
+          name: Español
+          build: true
+        - locale: ko
+          name: 한국어
+          build: true
       no_translation:
         en: "No translation available"
+        es: "No hay traducción disponible"
         ko: "번역이 없습니다"
 
 validation:
