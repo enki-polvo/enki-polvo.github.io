@@ -1,14 +1,15 @@
 name: Build & Deploy MkDocs
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: null
   push:
-    branches: [ main, master ]
+    branches:
+      - main
+      - master
     paths:
-      - 'docs/**'
-      - 'requirements.txt'
-      - 'mkdocs.yml'
-
+      - docs/**
+      - requirements.txt
+      - mkdocs.yml
 permissions:
   contents: read
   pages: write
@@ -17,11 +18,11 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v4
-        with: python-version: '3.x'
+        with:
+          python-version: 3.x
       - run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
